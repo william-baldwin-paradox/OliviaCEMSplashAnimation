@@ -1,0 +1,83 @@
+# SwiftLint Configuration for Olivia CEM Splash Animation
+
+# Paths to include
+included:
+  - App
+  - Resources
+
+# Paths to exclude
+excluded:
+  - Carthage
+  - Pods
+  - .build
+  - DerivedData
+  - RiveRuntime.xcframework
+
+# Rules configuration
+opt_in_rules:
+  - empty_count
+  - closure_spacing
+  - contains_over_first_not_nil
+  - discouraged_object_literal
+  - empty_string
+  - first_where
+  - force_unwrapping
+  - implicitly_unwrapped_optional
+  - last_where
+  - legacy_multiple
+  - multiline_parameters
+  - multiline_arguments
+  - prefer_zero_over_explicit_init
+  - sorted_imports
+  - unused_declaration
+  - unused_import
+  - vertical_parameter_alignment_on_call
+  - yoda_condition
+  - missing_docs
+
+disabled_rules:
+  - trailing_whitespace
+  - todo
+  - fixme
+
+# Rule configuration
+line_length:
+  warning: 120
+  error: 150
+  ignores_comments: true
+
+identifier_name:
+  min_length:
+    warning: 2
+    error: 1
+  max_length:
+    warning: 40
+    error: 50
+
+type_body_length:
+  warning: 300
+  error: 500
+
+file_length:
+  warning: 400
+  error: 1000
+
+function_body_length:
+  warning: 50
+  error: 100
+
+type_name:
+  min_length:
+    warning: 3
+    error: 2
+  max_length:
+    warning: 40
+    error: 50
+
+# Custom rules
+custom_rules:
+  mark_spacing:
+    name: "MARK comment spacing"
+    regex: '//\s*MARK:\s*(?!-\s)'
+    message: "MARK comments should include a hyphen and space after the colon."
+    severity: warning 
