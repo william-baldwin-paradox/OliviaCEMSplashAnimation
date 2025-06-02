@@ -1,6 +1,6 @@
 # Olivia CEM Splash Animation
 
-A production-ready splash animation implementation using Rive and SwiftUI.
+A code-fidelity prototype for splash animation implementation using Rive and SwiftUI.
 
 ## Architecture
 
