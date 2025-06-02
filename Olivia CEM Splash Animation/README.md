@@ -141,95 +141,29 @@ Add these files to your project:
 
 ### 3. Use the SplashView in Your App
 
+`SplashView` only needs the device's top safe-area inset so that, once collapsed, the animation header tucks neatly under the status-bar.
+
 ```swift
 import SwiftUI
-import RiveRuntime
 
 struct MyAppEntryView: View {
     var body: some View {
-        SplashView(
-            // Optional: Configure animation settings
-            config: .defaultConfig,
-            
-            // Called when splash animation completes and login is visible
-            onSplashComplete: {
-                // Handle navigation or other post-splash actions
-                print("Splash animation complete!")
-            }
-        ) {
-            // Your existing login UI goes here - will be animated in
-            YourLoginView()
+        // Forward the safe-area inset via GeometryReader
+        GeometryReader { geo in
+            SplashView(topSafeArea: geo.safeAreaInsets.top)
+                .ignoresSafeArea() // Splash covers the whole window
         }
     }
 }
 ```
 
-### 4. [Optional] Update Initialization Progress
+The component will automatically:
 
-If you want to tie the animation to your app's actual loading progress:
+1. Play the Rive splash while your app finishes loading.
+2. Animate the bundled `LoginView` into place when the animation event `logoDelta` fires.
+3. Handle dark-mode, accessibility and layout for both iPhone and iPad — out of the box.
 
-```swift
-// Get a reference to your SplashViewModel
-@StateObject private var splashViewModel = SplashViewModel()
-
-// Pass it to SplashView
-SplashView(viewModel: splashViewModel) {
-    YourLoginView() 
-}
-
-// Update progress during app initialization (0-100)
-func updateLoadingProgress() {
-    // When database loads
-    splashViewModel.updateInitializationProgress(25) 
-    
-    // When network requests complete
-    splashViewModel.updateInitializationProgress(50)
-    
-    // When app is fully initialized
-    splashViewModel.updateInitializationProgress(100)
-}
-```
-
-### 5. Access the Animation Progress in Your Login UI (Optional)
-
-The login view can access the animation progress via an environment value:
-
-```swift
-struct YourLoginView: View {
-    @Environment(\.animationProgressKey) var animationProgress
-    
-    var body: some View {
-        VStack {
-            // Use animationProgress to coordinate additional animations
-            Text("Login")
-                .opacity(animationProgress)
-        }
-    }
-}
-```
-
-## ⚙️ Configuration Options
-
-All animation parameters are configurable via the `SplashConfig` struct:
-
-```swift
-// Example: Custom configuration
-let customConfig = SplashConfig(
-    riveFileName: "your-custom-animation",
-    stateMachineName: "CustomStateMachine",
-    artboardName: "PHONE",
-    tabletArtboardName: "TABLET",
-    initializationInputName: "loadingProgress",
-    logoTransitionEventName: "showLogin",
-    minimumLoadTime: 2.0,
-    fallbackTimeout: 5.0
-)
-
-// Pass to SplashView
-SplashView(config: customConfig, onSplashComplete: nil) {
-    YourLoginView()
-}
-```
+No additional configuration is required; the IDs in `SplashConstants.swift` already match the bundled `.riv` file.
 
 ## 🚨 Troubleshooting
 
