@@ -140,7 +140,7 @@ Add these files to your project:
 
 ### 3. Use the SplashView in Your App
 
-`SplashView` only needs the device's top safe-area inset so that, once collapsed, the animation header tucks neatly under the status-bar.
+`SplashView` only needs the device's top safe-area inset so that, once collapsed, the animation header tucks neatly below the status-bar.
 
 ```swift
 import SwiftUI
@@ -160,7 +160,7 @@ The component will automatically:
 
 1. Play the Rive splash while your app finishes loading.
 2. Animate the bundled `LoginView` into place when the animation event `logoDelta` fires.
-3. Handle dark-mode, accessibility and layout for both iPhone and iPad — out of the box.
+3. Handle accessibility and layout for both iPhone and iPad — out of the box.
 
 No additional configuration is required; the IDs in `SplashConstants.swift` already match the bundled `.riv` file.
 
