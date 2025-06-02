@@ -19,9 +19,6 @@
 		5B605A712DE7E47700BF6131 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B605A692DE7E47700BF6131 /* SplashViewModel.swift */; };
 		5B605A722DE7E47700BF6131 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B605A622DE7E47700BF6131 /* AppColors.swift */; };
 		5B605A732DE7E47700BF6131 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B605A632DE7E47700BF6131 /* Button.swift */; };
-		5B605A782DE7E49000BF6131 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5B605A762DE7E49000BF6131 /* README.md */; };
-		5B605A792DE7E49000BF6131 /* organize-for-handoff.sh in Resources */ = {isa = PBXBuildFile; fileRef = 5B605A752DE7E49000BF6131 /* organize-for-handoff.sh */; };
-		5B605A7A2DE7E49000BF6131 /* TESTING.md in Resources */ = {isa = PBXBuildFile; fileRef = 5B605A772DE7E49000BF6131 /* TESTING.md */; };
 		5B9B3B092DA5891B00FF1808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B9B3B082DA5891B00FF1808 /* Assets.xcassets */; };
 		5B9B3B0C2DA5891B00FF1808 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B9B3B0B2DA5891B00FF1808 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -51,9 +48,6 @@
 		5B605A672DE7E47700BF6131 /* SplashConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashConstants.swift; sourceTree = "<group>"; };
 		5B605A682DE7E47700BF6131 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		5B605A692DE7E47700BF6131 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
-		5B605A752DE7E49000BF6131 /* organize-for-handoff.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "organize-for-handoff.sh"; sourceTree = "<group>"; };
-		5B605A762DE7E49000BF6131 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		5B605A772DE7E49000BF6131 /* TESTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TESTING.md; sourceTree = "<group>"; };
 		5B8CF99F2DA58AD90096066C /* RiveRuntime.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RiveRuntime.xcframework; sourceTree = "<group>"; };
 		5B9B3B012DA5891A00FF1808 /* Olivia CEM Splash Animation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Olivia CEM Splash Animation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9B3B082DA5891B00FF1808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,9 +140,6 @@
 		5B9B3B032DA5891A00FF1808 /* Olivia CEM Splash Animation */ = {
 			isa = PBXGroup;
 			children = (
-				5B605A752DE7E49000BF6131 /* organize-for-handoff.sh */,
-				5B605A762DE7E49000BF6131 /* README.md */,
-				5B605A772DE7E49000BF6131 /* TESTING.md */,
 				5B605A6B2DE7E47700BF6131 /* App */,
 				5B605A502DE7E3C100BF6131 /* Resources */,
 				5B8CF99F2DA58AD90096066C /* RiveRuntime.xcframework */,
@@ -232,9 +223,6 @@
 				5B605A512DE7E3C100BF6131 /* olivia-cem-splash-prod.riv in Resources */,
 				5B9B3B0C2DA5891B00FF1808 /* Preview Assets.xcassets in Resources */,
 				5B9B3B092DA5891B00FF1808 /* Assets.xcassets in Resources */,
-				5B605A782DE7E49000BF6131 /* README.md in Resources */,
-				5B605A792DE7E49000BF6131 /* organize-for-handoff.sh in Resources */,
-				5B605A7A2DE7E49000BF6131 /* TESTING.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

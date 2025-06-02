@@ -87,7 +87,6 @@ The Rive file (`olivia-cem-splash-prod.riv`) contains:
 ## Testing
 
 Run the app with different configurations:
-- Light/Dark mode
 - Different device sizes
 - With/without network (to test error state)
 - With VoiceOver enabled
