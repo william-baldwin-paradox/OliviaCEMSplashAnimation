@@ -6,7 +6,7 @@ struct InputField: View {
     let label: String
     let placeholder: String
     @Binding var text: String
-    @FocusState private var isFocused: Bool
+    @State private var isFocused: Bool = false
     
     // MARK: - Body
     
@@ -16,7 +16,11 @@ struct InputField: View {
                 .font(.system(size: 14, weight: .regular))
                 .foregroundColor(.appTextSecondary)
             
-            TextField(placeholder, text: $text)
+            TextField(placeholder, text: $text, onEditingChanged: { isEditing in
+                withAnimation(.easeInOut(duration: 0.2)) {
+                    isFocused = isEditing
+                }
+            })
                 .font(.system(size: 16, weight: .regular))
                 .foregroundColor(.appTextPrimary)
                 .padding(.horizontal, 12)
@@ -24,13 +28,6 @@ struct InputField: View {
                 .frame(height: 48)
                 .background(isFocused ? Color.appInputBackgroundFocused : Color.appInputBackground)
                 .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-                .focused($isFocused)
-                .onChange(of: isFocused) { _, _ in
-                    withAnimation(.easeInOut(duration: 0.2)) { }
-                }
-                .onSubmit {
-                    isFocused = false
-                }
         }
     }
 }

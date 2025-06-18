@@ -1,0 +1,148 @@
+{
+  "" : {
+    "diagnostics" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/Olivia CEM Splash Animation-master.dia",
+    "emit-module-dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/Olivia CEM Splash Animation-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/Olivia CEM Splash Animation-master-emit-module.dia",
+    "swift-dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/Olivia CEM Splash Animation-master.swiftdeps"
+  },
+  "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/Olivia CEM Splash Animation/App/Login/LoginView.swift" : {
+    "const-values" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LoginView.swiftconstvalues",
+    "dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LoginView.d",
+    "diagnostics" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LoginView.dia",
+    "index-unit-output-path" : "/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LoginView.o",
+    "llvm-bc" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LoginView.bc",
+    "object" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LoginView.o",
+    "swift-dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LoginView.swiftdeps",
+    "swiftmodule" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LoginView~partial.swiftmodule"
+  },
+  "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/Olivia CEM Splash Animation/App/Shared/AppColors.swift" : {
+    "const-values" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/AppColors.swiftconstvalues",
+    "dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/AppColors.d",
+    "diagnostics" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/AppColors.dia",
+    "index-unit-output-path" : "/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/AppColors.o",
+    "llvm-bc" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/AppColors.bc",
+    "object" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/AppColors.o",
+    "swift-dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/AppColors.swiftdeps",
+    "swiftmodule" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/AppColors~partial.swiftmodule"
+  },
+  "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/Olivia CEM Splash Animation/App/Shared/Button.swift" : {
+    "const-values" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/Button.swiftconstvalues",
+    "dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/Button.d",
+    "diagnostics" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/Button.dia",
+    "index-unit-output-path" : "/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/Button.o",
+    "llvm-bc" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/Button.bc",
+    "object" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/Button.o",
+    "swift-dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/Button.swiftdeps",
+    "swiftmodule" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/Button~partial.swiftmodule"
+  },
+  "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/Olivia CEM Splash Animation/App/Shared/CustomToggle.swift" : {
+    "const-values" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/CustomToggle.swiftconstvalues",
+    "dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/CustomToggle.d",
+    "diagnostics" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/CustomToggle.dia",
+    "index-unit-output-path" : "/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/CustomToggle.o",
+    "llvm-bc" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/CustomToggle.bc",
+    "object" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/CustomToggle.o",
+    "swift-dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/CustomToggle.swiftdeps",
+    "swiftmodule" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/CustomToggle~partial.swiftmodule"
+  },
+  "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/Olivia CEM Splash Animation/App/Shared/InputField.swift" : {
+    "const-values" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/InputField.swiftconstvalues",
+    "dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/InputField.d",
+    "diagnostics" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/InputField.dia",
+    "index-unit-output-path" : "/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/InputField.o",
+    "llvm-bc" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/InputField.bc",
+    "object" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/InputField.o",
+    "swift-dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/InputField.swiftdeps",
+    "swiftmodule" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/InputField~partial.swiftmodule"
+  },
+  "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/Olivia CEM Splash Animation/App/Shared/LottieInspector.swift" : {
+    "const-values" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LottieInspector.swiftconstvalues",
+    "dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LottieInspector.d",
+    "diagnostics" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LottieInspector.dia",
+    "index-unit-output-path" : "/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LottieInspector.o",
+    "llvm-bc" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LottieInspector.bc",
+    "object" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LottieInspector.o",
+    "swift-dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LottieInspector.swiftdeps",
+    "swiftmodule" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LottieInspector~partial.swiftmodule"
+  },
+  "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/Olivia CEM Splash Animation/App/Shared/LottieView.swift" : {
+    "const-values" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LottieView.swiftconstvalues",
+    "dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LottieView.d",
+    "diagnostics" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LottieView.dia",
+    "index-unit-output-path" : "/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LottieView.o",
+    "llvm-bc" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LottieView.bc",
+    "object" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LottieView.o",
+    "swift-dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LottieView.swiftdeps",
+    "swiftmodule" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/LottieView~partial.swiftmodule"
+  },
+  "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/Olivia CEM Splash Animation/App/Splash/SplashConstants.swift" : {
+    "const-values" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashConstants.swiftconstvalues",
+    "dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashConstants.d",
+    "diagnostics" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashConstants.dia",
+    "index-unit-output-path" : "/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashConstants.o",
+    "llvm-bc" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashConstants.bc",
+    "object" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashConstants.o",
+    "swift-dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashConstants.swiftdeps",
+    "swiftmodule" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashConstants~partial.swiftmodule"
+  },
+  "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/Olivia CEM Splash Animation/App/Splash/SplashView.swift" : {
+    "const-values" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashView.swiftconstvalues",
+    "dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashView.d",
+    "diagnostics" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashView.dia",
+    "index-unit-output-path" : "/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashView.o",
+    "llvm-bc" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashView.bc",
+    "object" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashView.o",
+    "swift-dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashView.swiftdeps",
+    "swiftmodule" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashView~partial.swiftmodule"
+  },
+  "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/Olivia CEM Splash Animation/App/Splash/SplashViewModel.swift" : {
+    "const-values" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashViewModel.swiftconstvalues",
+    "dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashViewModel.d",
+    "diagnostics" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashViewModel.dia",
+    "index-unit-output-path" : "/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashViewModel.o",
+    "llvm-bc" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashViewModel.bc",
+    "object" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashViewModel.o",
+    "swift-dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashViewModel.swiftdeps",
+    "swiftmodule" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SplashViewModel~partial.swiftmodule"
+  },
+  "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/Olivia CEM Splash Animation/AppDelegate.swift" : {
+    "const-values" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/AppDelegate.swiftconstvalues",
+    "dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/AppDelegate.d",
+    "diagnostics" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/AppDelegate.dia",
+    "index-unit-output-path" : "/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/AppDelegate.o",
+    "swift-dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/AppDelegate.swiftdeps",
+    "swiftmodule" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/AppDelegate~partial.swiftmodule"
+  },
+  "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/Olivia CEM Splash Animation/OliviaCEMSplashApp.swift" : {
+    "const-values" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/OliviaCEMSplashApp.swiftconstvalues",
+    "dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/OliviaCEMSplashApp.d",
+    "diagnostics" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/OliviaCEMSplashApp.dia",
+    "index-unit-output-path" : "/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/OliviaCEMSplashApp.o",
+    "llvm-bc" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/OliviaCEMSplashApp.bc",
+    "object" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/OliviaCEMSplashApp.o",
+    "swift-dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/OliviaCEMSplashApp.swiftdeps",
+    "swiftmodule" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/OliviaCEMSplashApp~partial.swiftmodule"
+  },
+  "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/Olivia CEM Splash Animation/SceneDelegate.swift" : {
+    "const-values" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SceneDelegate.swiftconstvalues",
+    "dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SceneDelegate.d",
+    "diagnostics" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SceneDelegate.dia",
+    "index-unit-output-path" : "/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SceneDelegate.o",
+    "llvm-bc" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SceneDelegate.bc",
+    "object" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SceneDelegate.o",
+    "swift-dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SceneDelegate.swiftdeps",
+    "swiftmodule" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/SceneDelegate~partial.swiftmodule"
+  },
+  "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/build/Olivia CEM Splash Animation.build/Debug-iphoneos/Olivia CEM Splash Animation.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}

@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5B354ED32DA8EABC00E2B775 /* OliviaCEMSplashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B354ED22DA8EABC00E2B775 /* OliviaCEMSplashApp.swift */; };
-		5B354ED82DA8F7EA00E2B775 /* RiveRuntime.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B8CF99F2DA58AD90096066C /* RiveRuntime.xcframework */; };
-		5B354ED92DA8F7EA00E2B775 /* RiveRuntime.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B8CF99F2DA58AD90096066C /* RiveRuntime.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5B605A512DE7E3C100BF6131 /* olivia-cem-splash-prod.riv in Resources */ = {isa = PBXBuildFile; fileRef = 5B605A4E2DE7E3C100BF6131 /* olivia-cem-splash-prod.riv */; };
 		5B605A6C2DE7E47700BF6131 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B605A682DE7E47700BF6131 /* SplashView.swift */; };
 		5B605A6D2DE7E47700BF6131 /* CustomToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B605A642DE7E47700BF6131 /* CustomToggle.swift */; };
 		5B605A6E2DE7E47700BF6131 /* SplashConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B605A672DE7E47700BF6131 /* SplashConstants.swift */; };
@@ -21,26 +18,16 @@
 		5B605A732DE7E47700BF6131 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B605A632DE7E47700BF6131 /* Button.swift */; };
 		5B9B3B092DA5891B00FF1808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B9B3B082DA5891B00FF1808 /* Assets.xcassets */; };
 		5B9B3B0C2DA5891B00FF1808 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B9B3B0B2DA5891B00FF1808 /* Preview Assets.xcassets */; };
-		5BA0B2C62DF9E3B300E21A91 /* olivia-cem-splash-prod-1.1.riv in Resources */ = {isa = PBXBuildFile; fileRef = 5BA0B2C52DF9E3B300E21A91 /* olivia-cem-splash-prod-1.1.riv */; };
+		5BA0B2C92DFCBE3000E21A91 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 5BA0B2C82DFCBE3000E21A91 /* Lottie */; };
+		5BA0B2D22E01ECAE00E21A91 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0B2D02E01ECAE00E21A91 /* LottieView.swift */; };
+		5BA0B2D92E01EDFB00E21A91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0B2D72E01EDFB00E21A91 /* AppDelegate.swift */; };
+		5BA0B2DA2E01EDFB00E21A91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0B2D82E01EDFB00E21A91 /* SceneDelegate.swift */; };
+		5BA0B2E02E0207B000E21A91 /* olivia-splash-login-lottie_1.1.lottie in Resources */ = {isa = PBXBuildFile; fileRef = 5BA0B2DF2E0207B000E21A91 /* olivia-splash-login-lottie_1.1.lottie */; };
+		5BA0B2E22E0207F900E21A91 /* olivia-splash-login-lottie_1.1.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BA0B2E12E0207F900E21A91 /* olivia-splash-login-lottie_1.1.json */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		5B354EDA2DA8F7EA00E2B775 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5B354ED92DA8F7EA00E2B775 /* RiveRuntime.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5B354ED22DA8EABC00E2B775 /* OliviaCEMSplashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OliviaCEMSplashApp.swift; sourceTree = "<group>"; };
-		5B605A4E2DE7E3C100BF6131 /* olivia-cem-splash-prod.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "olivia-cem-splash-prod.riv"; sourceTree = "<group>"; };
 		5B605A5F2DE7E47700BF6131 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5B605A622DE7E47700BF6131 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		5B605A632DE7E47700BF6131 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -49,11 +36,14 @@
 		5B605A672DE7E47700BF6131 /* SplashConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashConstants.swift; sourceTree = "<group>"; };
 		5B605A682DE7E47700BF6131 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		5B605A692DE7E47700BF6131 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
-		5B8CF99F2DA58AD90096066C /* RiveRuntime.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RiveRuntime.xcframework; sourceTree = "<group>"; };
 		5B9B3B012DA5891A00FF1808 /* Olivia CEM Splash Animation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Olivia CEM Splash Animation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9B3B082DA5891B00FF1808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B9B3B0B2DA5891B00FF1808 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5BA0B2C52DF9E3B300E21A91 /* olivia-cem-splash-prod-1.1.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "olivia-cem-splash-prod-1.1.riv"; sourceTree = "<group>"; };
+		5BA0B2D02E01ECAE00E21A91 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		5BA0B2D72E01EDFB00E21A91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5BA0B2D82E01EDFB00E21A91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5BA0B2DF2E0207B000E21A91 /* olivia-splash-login-lottie_1.1.lottie */ = {isa = PBXFileReference; lastKnownFileType = file; path = "olivia-splash-login-lottie_1.1.lottie"; sourceTree = "<group>"; };
+		5BA0B2E12E0207F900E21A91 /* olivia-splash-login-lottie_1.1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "olivia-splash-login-lottie_1.1.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,26 +51,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B354ED82DA8F7EA00E2B775 /* RiveRuntime.xcframework in Frameworks */,
+				5BA0B2C92DFCBE3000E21A91 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5B605A4F2DE7E3C100BF6131 /* Rive */ = {
-			isa = PBXGroup;
-			children = (
-				5BA0B2C52DF9E3B300E21A91 /* olivia-cem-splash-prod-1.1.riv */,
-				5B605A4E2DE7E3C100BF6131 /* olivia-cem-splash-prod.riv */,
-			);
-			path = Rive;
-			sourceTree = "<group>";
-		};
 		5B605A502DE7E3C100BF6131 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5B605A4F2DE7E3C100BF6131 /* Rive */,
+				5BA0B2CD2DFCBE9B00E21A91 /* Lottie */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -96,6 +77,7 @@
 		5B605A662DE7E47700BF6131 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				5BA0B2D02E01ECAE00E21A91 /* LottieView.swift */,
 				5B605A622DE7E47700BF6131 /* AppColors.swift */,
 				5B605A632DE7E47700BF6131 /* Button.swift */,
 				5B605A642DE7E47700BF6131 /* CustomToggle.swift */,
@@ -143,9 +125,10 @@
 		5B9B3B032DA5891A00FF1808 /* Olivia CEM Splash Animation */ = {
 			isa = PBXGroup;
 			children = (
+				5BA0B2D72E01EDFB00E21A91 /* AppDelegate.swift */,
+				5BA0B2D82E01EDFB00E21A91 /* SceneDelegate.swift */,
 				5B605A6B2DE7E47700BF6131 /* App */,
 				5B605A502DE7E3C100BF6131 /* Resources */,
-				5B8CF99F2DA58AD90096066C /* RiveRuntime.xcframework */,
 				5B354ED22DA8EABC00E2B775 /* OliviaCEMSplashApp.swift */,
 				5B9B3B082DA5891B00FF1808 /* Assets.xcassets */,
 				5B9B3B0A2DA5891B00FF1808 /* Preview Content */,
@@ -161,6 +144,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		5BA0B2CD2DFCBE9B00E21A91 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				5BA0B2E12E0207F900E21A91 /* olivia-splash-login-lottie_1.1.json */,
+				5BA0B2DF2E0207B000E21A91 /* olivia-splash-login-lottie_1.1.lottie */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -171,7 +163,6 @@
 				5B9B3AFD2DA5891A00FF1808 /* Sources */,
 				5B9B3AFE2DA5891A00FF1808 /* Frameworks */,
 				5B9B3AFF2DA5891A00FF1808 /* Resources */,
-				5B354EDA2DA8F7EA00E2B775 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -207,7 +198,7 @@
 			);
 			mainGroup = 5B9B3AF82DA5891A00FF1808;
 			packageReferences = (
-				5B9B3B122DA5899A00FF1808 /* XCRemoteSwiftPackageReference "rive-ios" */,
+				5BA0B2C72DFCBE3000E21A91 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = 5B9B3B022DA5891A00FF1808 /* Products */;
 			projectDirPath = "";
@@ -223,9 +214,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B605A512DE7E3C100BF6131 /* olivia-cem-splash-prod.riv in Resources */,
+				5BA0B2E22E0207F900E21A91 /* olivia-splash-login-lottie_1.1.json in Resources */,
+				5BA0B2E02E0207B000E21A91 /* olivia-splash-login-lottie_1.1.lottie in Resources */,
 				5B9B3B0C2DA5891B00FF1808 /* Preview Assets.xcassets in Resources */,
-				5BA0B2C62DF9E3B300E21A91 /* olivia-cem-splash-prod-1.1.riv in Resources */,
 				5B9B3B092DA5891B00FF1808 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,8 +235,11 @@
 				5B605A702DE7E47700BF6131 /* LoginView.swift in Sources */,
 				5B605A712DE7E47700BF6131 /* SplashViewModel.swift in Sources */,
 				5B605A722DE7E47700BF6131 /* AppColors.swift in Sources */,
+				5BA0B2D92E01EDFB00E21A91 /* AppDelegate.swift in Sources */,
+				5BA0B2DA2E01EDFB00E21A91 /* SceneDelegate.swift in Sources */,
 				5B605A732DE7E47700BF6131 /* Button.swift in Sources */,
 				5B354ED32DA8EABC00E2B775 /* OliviaCEMSplashApp.swift in Sources */,
+				5BA0B2D22E01ECAE00E21A91 /* LottieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +382,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -417,7 +411,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,15 +449,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5B9B3B122DA5899A00FF1808 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+		5BA0B2C72DFCBE3000E21A91 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/rive-app/rive-ios";
+			repositoryURL = "https://github.com/airbnb/lottie-spm";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.7.4;
+				minimumVersion = 4.5.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5BA0B2C82DFCBE3000E21A91 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BA0B2C72DFCBE3000E21A91 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5B9B3AF92DA5891A00FF1808 /* Project object */;
 }

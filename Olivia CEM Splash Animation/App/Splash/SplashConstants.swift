@@ -1,21 +1,50 @@
 import Foundation
 import CoreGraphics
+import UIKit
 
-// MARK: - Rive Identifiers
-enum RiveIDs {
-    static let fileName = "olivia-cem-splash-prod"
-    static let artboardName = "PROD"
-    static let stateMachineName = "SplashStateMachine"
+// MARK: - Device Dimensions
+class DeviceDimensions: ObservableObject {
+    static let shared = DeviceDimensions()
     
-    // Events
-    static let logoDeltaEvent = "logoDelta"
+    @Published var screenWidth: CGFloat
+    @Published var screenHeight: CGFloat
+    @Published var safeAreaTop: CGFloat
+    @Published var safeAreaBottom: CGFloat
     
-    // Inputs
-    static let initializationPercentInput = "initializationPercent"
-    static let showLoginUIInput = "showLoginUI"
+    private init() {
+        let screen = UIScreen.main.bounds
+        self.screenWidth = screen.width
+        self.screenHeight = screen.height
+        
+        // Get safe area insets
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first {
+            self.safeAreaTop = window.safeAreaInsets.top
+            self.safeAreaBottom = window.safeAreaInsets.bottom
+        } else {
+            // Fallback values
+            self.safeAreaTop = 44
+            self.safeAreaBottom = 34
+        }
+        
+        print("📱 Device Dimensions - Width: \(screenWidth), Height: \(screenHeight)")
+        print("🔒 Safe Areas - Top: \(safeAreaTop), Bottom: \(safeAreaBottom)")
+    }
     
-    // States
-    static let loginState = "Login"
+    // Preview/Debug values
+    static let previewWidth: CGFloat = 393
+    static let previewHeight: CGFloat = 852
+    static let previewSafeAreaTop: CGFloat = 59
+    static let previewSafeAreaBottom: CGFloat = 34
+}
+
+// MARK: - Lottie Configuration
+enum LottieConfig {
+    static let fileName = "olivia-splash-login-lottie_1.1"  // Will try both .json and .lottie
+    
+    // Animation segments based on the actual Lottie file v1.1
+    static let splashSegment = LottieSegment(startFrame: 0, endFrame: 207)   // Splash: frames 0-207
+    static let loginSegment = LottieSegment(startFrame: 208, endFrame: 285)  // Login: frames 208-285
 }
 
 // MARK: - Animation Constants
@@ -23,6 +52,12 @@ enum AnimationConstants {
     static let minimumLoadTime: TimeInterval = 1.5
     static let progressSpringResponse: TimeInterval = 0.5
     static let springDamping: CGFloat = 1
+    
+    // Lottie sizing
+    static let collapsedHeight: CGFloat = 120
+    
+    // Lottie playback speed (1.0 = normal, 1.25 = 25% faster, 0.9 = 10% slower)
+    static let lottiePlaybackSpeed: CGFloat = 1.125
 }
 
 // MARK: - Layout Constants

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>colors</key>
+	<array/>
+	<key>images</key>
+	<array>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/Olivia CEM Splash Animation/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameSplashFallback</string>
+			<key>relativePath</key>
+			<string>./splash-fallback.imageset</string>
+			<key>swiftSymbol</key>
+			<string>splashFallback</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/william.baldwin/Documents/GitHub/OliviaCEMSplashAnimation/Olivia CEM Splash Animation/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameSplashFallback1</string>
+			<key>relativePath</key>
+			<string>./splash-fallback 1.imageset</string>
+			<key>swiftSymbol</key>
+			<string>splashFallback1</string>
+		</dict>
+	</array>
+	<key>symbols</key>
+	<array/>
+</dict>
+</plist>

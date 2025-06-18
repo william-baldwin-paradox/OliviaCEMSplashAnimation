@@ -4,7 +4,7 @@ struct LoginView: View {
     // MARK: - Properties
     
     @State private var identifier: String = ""
-    @FocusState private var isInputFieldFocused: Bool
+    // Note: Focus state removed for iOS 13 compatibility
     
     // The design now uses fixed header/footer; no dynamic splash spacing needed.
     
@@ -27,15 +27,18 @@ struct LoginView: View {
                         placeholder: "Phone Number, email, or EID",
                         text: $identifier
                     )
-                    .focused($isInputFieldFocused)
 
                     CustomButton(title: "Next") {
-                        isInputFieldFocused = false
+                        // Dismiss keyboard on button tap
+                        hideKeyboard()
                     }
                 }
                 .padding(.bottom, 40)
                 .contentShape(Rectangle())
-                .onTapGesture { isInputFieldFocused = false }
+                .onTapGesture { 
+                    // Dismiss keyboard on tap
+                    hideKeyboard()
+                }
                 .frame(maxWidth: 393)
                 .frame(maxWidth: .infinity)
                 
@@ -48,13 +51,13 @@ struct LoginView: View {
                         title: "Sign in with SSO",
                         type: .secondary,
                         leftIcon: Image(systemName: "key.fill")
-                    ) { isInputFieldFocused = false }
+                    ) { hideKeyboard() }
 
                     CustomButton(
                         title: "Region: US",
                         type: .utility,
                         width: .hugContents
-                    ) { isInputFieldFocused = false }
+                    ) { hideKeyboard() }
 
                     Text("© 2016 - 2025 Olivia by Paradox")
                         .font(.system(size: 14))
@@ -68,7 +71,12 @@ struct LoginView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
         .padding(.horizontal, 24.0)
-        .ignoresSafeArea()
+        .edgesIgnoringSafeArea(.all)
+    }
+    
+    // MARK: - Helper Methods
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 

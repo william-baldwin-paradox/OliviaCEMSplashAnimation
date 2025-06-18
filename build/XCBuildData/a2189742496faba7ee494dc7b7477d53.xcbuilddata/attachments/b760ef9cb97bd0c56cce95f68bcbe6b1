@@ -1,0 +1,18 @@
+{
+  "" : {
+    "diagnostics" : "/Users/william.baldwin/Library/Developer/Xcode/DerivedData/Olivia_CEM_Splash_Animation-aonbbckvdkurtbgjwelxkvjcuzik/SourcePackages/checkouts/lottie-spm/build/Lottie.build/Debug-iphoneos/_LottieStub.build/Objects-normal/arm64/_LottieStub-master.dia",
+    "emit-module-dependencies" : "/Users/william.baldwin/Library/Developer/Xcode/DerivedData/Olivia_CEM_Splash_Animation-aonbbckvdkurtbgjwelxkvjcuzik/SourcePackages/checkouts/lottie-spm/build/Lottie.build/Debug-iphoneos/_LottieStub.build/Objects-normal/arm64/_LottieStub-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/william.baldwin/Library/Developer/Xcode/DerivedData/Olivia_CEM_Splash_Animation-aonbbckvdkurtbgjwelxkvjcuzik/SourcePackages/checkouts/lottie-spm/build/Lottie.build/Debug-iphoneos/_LottieStub.build/Objects-normal/arm64/_LottieStub-master-emit-module.dia",
+    "swift-dependencies" : "/Users/william.baldwin/Library/Developer/Xcode/DerivedData/Olivia_CEM_Splash_Animation-aonbbckvdkurtbgjwelxkvjcuzik/SourcePackages/checkouts/lottie-spm/build/Lottie.build/Debug-iphoneos/_LottieStub.build/Objects-normal/arm64/_LottieStub-master.swiftdeps"
+  },
+  "/Users/william.baldwin/Library/Developer/Xcode/DerivedData/Olivia_CEM_Splash_Animation-aonbbckvdkurtbgjwelxkvjcuzik/SourcePackages/checkouts/lottie-spm/Sources/_LottieStub/Stub.swift" : {
+    "const-values" : "/Users/william.baldwin/Library/Developer/Xcode/DerivedData/Olivia_CEM_Splash_Animation-aonbbckvdkurtbgjwelxkvjcuzik/SourcePackages/checkouts/lottie-spm/build/Lottie.build/Debug-iphoneos/_LottieStub.build/Objects-normal/arm64/Stub.swiftconstvalues",
+    "dependencies" : "/Users/william.baldwin/Library/Developer/Xcode/DerivedData/Olivia_CEM_Splash_Animation-aonbbckvdkurtbgjwelxkvjcuzik/SourcePackages/checkouts/lottie-spm/build/Lottie.build/Debug-iphoneos/_LottieStub.build/Objects-normal/arm64/Stub.d",
+    "diagnostics" : "/Users/william.baldwin/Library/Developer/Xcode/DerivedData/Olivia_CEM_Splash_Animation-aonbbckvdkurtbgjwelxkvjcuzik/SourcePackages/checkouts/lottie-spm/build/Lottie.build/Debug-iphoneos/_LottieStub.build/Objects-normal/arm64/Stub.dia",
+    "index-unit-output-path" : "/Lottie.build/Debug-iphoneos/_LottieStub.build/Objects-normal/arm64/Stub.o",
+    "llvm-bc" : "/Users/william.baldwin/Library/Developer/Xcode/DerivedData/Olivia_CEM_Splash_Animation-aonbbckvdkurtbgjwelxkvjcuzik/SourcePackages/checkouts/lottie-spm/build/Lottie.build/Debug-iphoneos/_LottieStub.build/Objects-normal/arm64/Stub.bc",
+    "object" : "/Users/william.baldwin/Library/Developer/Xcode/DerivedData/Olivia_CEM_Splash_Animation-aonbbckvdkurtbgjwelxkvjcuzik/SourcePackages/checkouts/lottie-spm/build/Lottie.build/Debug-iphoneos/_LottieStub.build/Objects-normal/arm64/Stub.o",
+    "swift-dependencies" : "/Users/william.baldwin/Library/Developer/Xcode/DerivedData/Olivia_CEM_Splash_Animation-aonbbckvdkurtbgjwelxkvjcuzik/SourcePackages/checkouts/lottie-spm/build/Lottie.build/Debug-iphoneos/_LottieStub.build/Objects-normal/arm64/Stub.swiftdeps",
+    "swiftmodule" : "/Users/william.baldwin/Library/Developer/Xcode/DerivedData/Olivia_CEM_Splash_Animation-aonbbckvdkurtbgjwelxkvjcuzik/SourcePackages/checkouts/lottie-spm/build/Lottie.build/Debug-iphoneos/_LottieStub.build/Objects-normal/arm64/Stub~partial.swiftmodule"
+  }
+}
