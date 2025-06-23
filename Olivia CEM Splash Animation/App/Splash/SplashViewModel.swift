@@ -44,7 +44,8 @@ final class SplashViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     self?.handleAnimationCompletion()
                 }
-            }
+            },
+            playbackSpeed: currentPlaybackSpeed()
         )
         .id("continuous-lottie-animation") // Single stable ID
         .onAppear {
@@ -73,6 +74,17 @@ final class SplashViewModel: ObservableObject {
         }
     }
     
+    private func currentPlaybackSpeed() -> CGFloat {
+        switch currentAnimationState {
+        case .splash:
+            return AnimationConstants.splashPlaybackSpeed
+        case .login:
+            return AnimationConstants.loginPlaybackSpeed
+        case .pausedAtLogin, .completed:
+            return 1.0 // Default speed for paused states
+        }
+    }
+    
     private func handleAnimationCompletion() {
         switch currentAnimationState {
         case .splash:
@@ -97,8 +109,8 @@ final class SplashViewModel: ObservableObject {
         // Pause at frame 207
         currentAnimationState = .pausedAtLogin
         
-        // Start login UI first, then follow with Lottie login segment
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        // Start login UI first, then follow with Lottie login segment after a longer delay
+        DispatchQueue.main.asyncAfter(deadline: .now() + AnimationConstants.loginUIDelay) {
             print("🎭 Starting login UI animation")
             
             // Start login UI animation first
@@ -106,9 +118,9 @@ final class SplashViewModel: ObservableObject {
                 self.showLoginUI = true
             }
             
-            // Start login segment slightly after the UI animation begins
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-                print("🎬 Starting login Lottie segment (delayed)")
+            // Start login segment with additional delay to let the UI settle
+            DispatchQueue.main.asyncAfter(deadline: .now() + AnimationConstants.loginLottieDelay) {
+                print("🎬 Starting login Lottie segment (delayed by \(AnimationConstants.loginLottieDelay)s)")
                 self.currentAnimationState = .login
             }
         }

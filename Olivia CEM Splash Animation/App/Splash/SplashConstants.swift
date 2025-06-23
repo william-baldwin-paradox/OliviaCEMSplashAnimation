@@ -49,14 +49,22 @@ enum LottieConfig {
 
 // MARK: - Animation Constants
 enum AnimationConstants {
-    static let minimumLoadTime: TimeInterval = 1.5
-    static let progressSpringResponse: TimeInterval = 0.5
-    static let springDamping: CGFloat = 1
+    static let minimumLoadTime: TimeInterval = 1.0
+    static let progressSpringResponse: TimeInterval = 0.45
+    static let springDamping: CGFloat = 0.7
     
     // Lottie sizing
     static let collapsedHeight: CGFloat = 120
     
-    // Lottie playback speed (1.0 = normal, 1.25 = 25% faster, 0.9 = 10% slower)
+    // Lottie playback speeds - now separated by segment
+    static let splashPlaybackSpeed: CGFloat = 1.125      // Normal speed for splash
+    static let loginPlaybackSpeed: CGFloat = 1.1       // 50% faster for login segment
+    
+    // Timing delays
+    static let loginUIDelay: TimeInterval = 0.0         // Delay before showing login UI
+    static let loginLottieDelay: TimeInterval = 0.36     // Additional delay before starting login Lottie segment
+    
+    // Legacy support - can be removed if not used elsewhere
     static let lottiePlaybackSpeed: CGFloat = 1.125
 }
 
