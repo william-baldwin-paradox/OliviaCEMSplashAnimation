@@ -1,6 +1,6 @@
 # Olivia CEM Splash Animation
 
-A code-fidelity prototype for splash animation implementation using Rive and SwiftUI.
+A production-ready splash animation implementation using Lottie and SwiftUI with sophisticated timing controls and responsive design.
 
 ## Architecture
 
@@ -11,47 +11,48 @@ OliviaCEMSplashAnimation/
 │
 ├── App/
 │   ├── Splash/
-│   │   ├── SplashView.swift         # Main splash screen view
-│   │   ├── SplashViewModel.swift    # Business logic and state management
-│   │   └── SplashConstants.swift    # All constants and magic numbers
+│   │   ├── SplashView.swift         # Main splash screen with overlay system
+│   │   ├── SplashViewModel.swift    # Animation state management & sequencing
+│   │   └── SplashConstants.swift    # Configuration constants & timing
 │   ├── Login/
-│   │   └── LoginView.swift          # Login UI implementation
+│   │   └── LoginView.swift          # Login UI with proportional spacing
 │   └── Shared/
-│       ├── AnimationProgressEnvironment.swift
-│       ├── Button.swift
-│       ├── CustomToggle.swift
-│       ├── InputField.swift
-│       └── AppColors.swift
+│       ├── LottieView.swift         # Lottie animation wrapper
+│       ├── Button.swift             # Custom button components
+│       ├── CustomToggle.swift       # Toggle components
+│       ├── InputField.swift         # Input field components
+│       └── AppColors.swift          # Color system
 │
 └── Resources/
-    ├── Rive/
-    │   └── olivia-cem-splash-prod.riv
-    └── Assets.xcassets
+    └── Lottie/
+        └── olivia-splash-login-lottie_1.6.json  # Final animation asset
 ```
 
 ## Key Features
 
+### ✅ Advanced Animation System
+- **Segmented Lottie playback** - Splash (frames 0-108) → Login (frames 109-137)
+- **Sophisticated timing controls** - Lottie starts 0.2s before UI animation
+- **State machine architecture** - Clean transitions between animation states
+- **Optimized performance** - Single animation view with dynamic segments
+
+### ✅ Responsive Design
+- **Proportional spacing** - LoginView spacing scales with screen height (ratio: 4.347826087)
+- **iPad optimization** - Centered 393px max width layout
+- **Universal support** - Works seamlessly on all iOS devices
+- **Aspect-aware scaling** - Animation scales properly with different screen sizes
+
 ### ✅ Production-Ready Architecture
 - **MVVM pattern** with proper separation of concerns
-- **No magic numbers** - all constants extracted to `SplashConstants.swift`
-- **Memory-safe** - proper weak references in delegates to prevent retain cycles
-- **Thread-safe** - proper use of `@MainActor` and `Task`
-
-### ✅ Error Handling
-- Graceful fallback when Rive fails to load
-- Logging with `os.log` for debugging
-- User-friendly error UI with skip option
-
-### ✅ Accessibility & UX
-- **Dark mode support** - uses system background colors
-- **VoiceOver ready** - proper accessibility traits and modal handling
-- **Reduce Motion** respected via SwiftUI animations
+- **No magic numbers** - all constants extracted to configuration files
+- **Memory-safe** - proper weak references and lifecycle management
+- **Thread-safe** - proper use of `@MainActor` and async operations
 
 ### ✅ Developer Experience
-- **SwiftLint** configuration for code quality
-- **Pinned dependencies** - Rive runtime locked to v6.7.4
-- **Well-documented** code with MARK sections
-- **Multiple previews** for different states
+- **Clean codebase** - No development artifacts or test files
+- **Comprehensive documentation** - Well-documented code with clear structure
+- **SwiftLint ready** - Code quality standards enforced
+- **Git hygiene** - .gitignore prevents development noise
 
 ## Setup Instructions
 
@@ -60,118 +61,145 @@ OliviaCEMSplashAnimation/
    brew install swiftlint
    ```
 
-2. **Add SwiftLint Build Phase**:
-   - Select project in Xcode
-   - Select target → Build Phases
-   - Add New Run Script Phase:
-   ```bash
-   if which swiftlint >/dev/null; then
-     swiftlint
-   else
-     echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
-   fi
-   ```
+2. **Add Lottie Dependency**:
+   - In Xcode: File → Add Package Dependencies
+   - URL: `https://github.com/airbnb/lottie-ios`
+   - Version: Use latest stable version
 
 3. **Configure Build Settings**:
    - Enable Thread Sanitizer (Debug only)
    - Enable Undefined Behavior Sanitizer (Debug only)
 
-## State Machine Integration
+## Animation Configuration
 
-The Rive file (`olivia-cem-splash-prod.riv`) contains:
-- **Artboard**: "PROD"
-- **State Machine**: "SplashStateMachine"
-- **Event**: "logoDelta" - fires when logo animation reaches the login position
-- **Input**: "initializationPercent" - controls buffer progress (0-100)
+The Lottie animation (`olivia-splash-login-lottie_1.6.json`) contains:
+- **Splash Segment**: Frames 0-108 (plays at 1.1x speed)
+- **Login Segment**: Frames 109-137 (plays at 0.9x speed)
+- **Total Duration**: ~4.5 seconds with optimized pacing
+- **Square Format**: 1:1 aspect ratio for consistent scaling
 
-## Testing
+### Timing Configuration
 
-Run the app with different configurations:
-- Different device sizes
-- With/without network (to test error state)
-- With VoiceOver enabled
+```swift
+// In SplashConstants.swift
+static let loginUIDelay: TimeInterval = 0.43     // Delay before UI animation
+static let loginLottieDelay: TimeInterval = 0.4  // Lottie starts 0.03s before UI
+```
 
-## Maintenance
+## Integration
 
-When updating animations:
-1. Update event/input names in `SplashConstants.swift`
-2. Test all transitions thoroughly
-3. Verify accessibility still works
+### Basic Usage
 
-## Dependencies
-
-- **RiveRuntime** v6.7.4 - Pinned for stability
-- **SwiftUI** - iOS 17.0+
-
-## Performance Considerations
-
-- Rive view is hidden from accessibility tree to prevent focus issues
-- Animations use native SwiftUI for better performance
-- Proper cancellation of async tasks prevents memory leaks
-
-## 📋 Overview
-
-This component provides a smooth, production-ready splash to login transition using Rive animations that:
-
-- Shows a custom splash animation while the app initializes
-- Smoothly transitions to a login UI when ready
-- Supports both iPhone and iPad devices
-- Automatically handles orientation (iPad is locked to landscape)
-- Includes fallback mechanisms if animation events don't fire
-
-## 🛠️ Integration Steps
-
-### 1. Add Required Files to Your Project
-
-Add these files to your project:
-- `SplashView.swift`
-- `SplashViewModel.swift`
-- `olivia-cem-splash-prod.riv` (Rive animation file)
-
-### 2. Add the Rive Runtime Dependency
-
-#### Option A: Using Swift Package Manager (Recommended)
-1. In Xcode, go to File > Add Package Dependencies...
-2. Enter the URL: `https://github.com/rive-app/rive-ios`
-3. Select "Up to Next Major Version" (3.0.0 < 4.0.0)
-
-#### Option B: Using the XCFramework
-1. Add the `RiveRuntime.xcframework` to your project
-
-### 3. Use the SplashView in Your App
-
-`SplashView` only needs the device's top safe-area inset so that, once collapsed, the animation header tucks neatly below the status-bar.
+The splash system works as an overlay - simply use `SplashView` as your app's initial view:
 
 ```swift
 import SwiftUI
 
-struct MyAppEntryView: View {
-    var body: some View {
-        // Forward the safe-area inset via GeometryReader
-        GeometryReader { geo in
-            SplashView(topSafeArea: geo.safeAreaInsets.top)
-                .ignoresSafeArea() // Splash covers the whole window
+@main
+struct OliviaCEMSplashApp: App {
+    var body: some Scene {
+        WindowGroup {
+            SplashView()
+                .ignoresSafeArea(.all)
         }
     }
 }
 ```
 
-The component will automatically:
+### Customization
 
-1. Play the Rive splash while your app finishes loading.
-2. Animate the bundled `LoginView` into place when the animation event `logoDelta` fires.
-3. Handle accessibility and layout for both iPhone and iPad — out of the box.
+Adjust timing and spacing in `SplashConstants.swift`:
 
-No additional configuration is required; the IDs in `SplashConstants.swift` already match the bundled `.riv` file.
+```swift
+enum AnimationConstants {
+    // Adjust these values to fine-tune timing
+    static let loginUIDelay: TimeInterval = 0.43         
+    static let loginLottieDelay: TimeInterval = 0.4     
+    
+    // Adjust these for different animation speeds
+    static let splashPlaybackSpeed: CGFloat = 1.1      
+    static let loginPlaybackSpeed: CGFloat = 0.9       
+}
+```
+
+### Proportional Spacing
+
+The LoginView automatically calculates spacing based on screen height:
+
+```swift
+// Spacing ratio based on iPhone 15 (852px height, 196px spacing)
+private let spacerRatio: CGFloat = 4.347826087
+
+// Usage: geometry.size.height / spacerRatio
+```
+
+## Testing
+
+Test the app with different configurations:
+- **Device sizes** - iPhone SE to iPhone Pro Max
+- **iPad orientations** - Portrait and landscape
+- **Animation timing** - Verify smooth transitions
+- **Accessibility** - Test with VoiceOver enabled
+
+## Performance Considerations
+
+- **Single animation view** - Reuses one LottieView with dynamic segments
+- **Optimized transitions** - No view recreation during segment changes
+- **Memory efficient** - Proper cleanup and weak references
+- **Responsive layouts** - GeometryReader only where necessary
+
+## 📋 Key Improvements
+
+This implementation provides significant improvements over previous versions:
+
+### Animation System
+- ✅ **Segmented playback** replaces complex state management
+- ✅ **Precise timing control** with configurable delays
+- ✅ **Single source of truth** for animation state
+
+### Layout & Spacing
+- ✅ **Proportional spacing** prevents overlap issues across devices
+- ✅ **iPad centering** with proper horizontal layout
+- ✅ **Responsive design** that scales with screen dimensions
+
+### Code Quality
+- ✅ **Clean architecture** with clear separation of concerns
+- ✅ **No magic numbers** - all values are configurable constants
+- ✅ **Production ready** - no debug artifacts or test files
 
 ## 🚨 Troubleshooting
 
-- **Rive Animation Not Appearing**: Ensure the .riv file is included in your app bundle
-- **Login Never Appears**: Check logs for warnings about the animation event not firing
-- **iPad Display Issues**: The component forces landscape orientation on iPads by default
+- **Animation not loading**: Verify `olivia-splash-login-lottie_1.6.json` is in bundle
+- **Timing issues**: Adjust `loginUIDelay` and `loginLottieDelay` in constants
+- **Spacing problems**: Modify `spacerRatio` for different proportions
+- **iPad layout**: Check horizontal centering with 393px max width
 
-## 📝 Notes for Developers
+## 🔧 Configuration Reference
 
-- The splash component automatically handles portrait/landscape for iPad/iPhone
-- To see debug logs, filter Console app for subsystem "YOUR_BUNDLE_ID" and category "SplashViewModel"
-- If animation fails to load, a fallback UI will be shown 
+### Animation Segments
+```swift
+static let splashSegment = LottieSegment(startFrame: 0, endFrame: 108)
+static let loginSegment = LottieSegment(startFrame: 109, endFrame: 137)
+```
+
+### Timing Controls
+```swift
+static let loginUIDelay: TimeInterval = 0.43      // UI animation delay
+static let loginLottieDelay: TimeInterval = 0.4   // Lottie animation delay
+```
+
+### Layout Constants
+```swift
+static let loginViewMaxWidth: CGFloat = 393        // iPad max width
+static let horizontalPadding: CGFloat = 24         // Standard padding
+```
+
+## Dependencies
+
+- **Lottie-iOS** - Latest stable version for animation playback
+- **SwiftUI** - iOS 17.0+ for modern layout system
+- **Foundation** - Core system functionality
+
+---
+
+**Note**: This implementation uses Lottie instead of Rive for improved performance and easier maintenance. All timing and spacing have been optimized for production use.
