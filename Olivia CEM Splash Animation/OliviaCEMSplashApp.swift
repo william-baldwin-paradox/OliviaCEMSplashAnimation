@@ -14,17 +14,9 @@ struct OliviaCEMSplashApp: App {
 
 // Shared ContentView that works across iOS versions
 struct ContentView: View {
-    @ObservedObject private var deviceDimensions = DeviceDimensions.shared
-    
     var body: some View {
-        GeometryReader { geometry in
-            SplashView(topSafeArea: geometry.safeAreaInsets.top)
-                .onAppear {
-                    // Ensure DeviceDimensions is initialized with current values
-                    print("📱 ContentView: Initializing device dimensions")
-                }
-        }
-        .edgesIgnoringSafeArea(.all)
+        SplashView()
+            .edgesIgnoringSafeArea(.all)
     }
 }
 

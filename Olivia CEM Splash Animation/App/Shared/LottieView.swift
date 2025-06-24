@@ -1,171 +1,277 @@
 import SwiftUI
 import Lottie
 
-/// Enhanced Lottie SwiftUI implementation with comprehensive debugging
-struct CustomLottieView: UIViewRepresentable {
-    let animation: LottieAnimation?
-    let completion: (() -> Void)?
-    var playbackMode: LottiePlaybackMode = .playing(.fromProgress(0, toProgress: 1, loopMode: .loop))
-    var animationSpeed: CGFloat = 1.0 // 1.0 = normal speed, 1.25 = 25% faster, 0.9 = 10% slower
+/// Interactive Lottie Animation Viewer with Scrubbing Controls
+struct LottieAnalysisView: View {
+    @State private var currentFrame: Double = 0
+    @State private var isPlaying: Bool = false
+    @State private var animationView: LottieAnimationView?
+    @State private var totalFrames: Double = 0
+    @State private var framerate: Double = 30
+    @State private var animationLoaded: Bool = false
     
-    init(animation: LottieAnimation?, completion: (() -> Void)? = nil) {
-        self.animation = animation
-        self.completion = completion
-    }
+    private let animationName = "olivia-splash-login-lottie_1.5"
     
-    init(animation: LottieAnimation?) {
-        self.animation = animation
-        self.completion = nil
-        
-        // Debug: Print animation loading status
-        if let animation = animation {
-            print("✅ CustomLottieView: Animation loaded successfully")
-            print("📊 Animation duration: \(animation.duration) seconds")
-            print("🎬 Animation frame rate: \(animation.framerate) fps")
-            print("📏 Total frames: \(animation.endFrame - animation.startFrame)")
-            print("🎯 Start frame: \(animation.startFrame), End frame: \(animation.endFrame)")
-        } else {
-            print("❌ CustomLottieView: Failed to load animation")
+    var body: some View {
+        VStack(spacing: 20) {
+            // Animation Display
+            if animationLoaded {
+                AnimationViewRepresentable(
+                    animationName: animationName,
+                    currentFrame: $currentFrame,
+                    isPlaying: $isPlaying,
+                    totalFrames: $totalFrames,
+                    framerate: $framerate,
+                    onAnimationViewCreated: { view in
+                        self.animationView = view
+                    }
+                )
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.black.opacity(0.1))
+                .cornerRadius(12)
+            } else {
+                // Placeholder while loading or if animation fails to load
+                VStack {
+                    Image(systemName: "play.rectangle")
+                        .font(.system(size: 60))
+                        .foregroundColor(.gray)
+                    Text("Loading Animation...")
+                        .font(.headline)
+                        .foregroundColor(.secondary)
+                    Text(animationName)
+                        .font(.caption)
+                        .foregroundColor(Color.secondary.opacity(0.6))
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.black.opacity(0.1))
+                .cornerRadius(12)
+            }
+            
+            // Controls Section
+            VStack(spacing: 16) {
+                // Frame Info
+                HStack {
+                    Text("Frame: \(Int(currentFrame))")
+                        .font(.system(.body, design: .monospaced))
+                    Spacer()
+                    Text("Total: \(Int(totalFrames))")
+                        .font(.system(.body, design: .monospaced))
+                    Spacer()
+                    Text("FPS: \(Int(framerate))")
+                        .font(.system(.body, design: .monospaced))
+                }
+                .foregroundColor(.secondary)
+                
+                // Frame Navigation
+                HStack(spacing: 20) {
+                    // Step Backward
+                    Button(action: stepBackward) {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 20, weight: .medium))
+                            .foregroundColor(.primary)
+                    }
+                    .disabled(currentFrame <= 0 || !animationLoaded)
+                    
+                    // Play/Pause
+                    Button(action: togglePlayback) {
+                        Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+                            .font(.system(size: 20, weight: .medium))
+                            .foregroundColor(.primary)
+                    }
+                    .disabled(!animationLoaded)
+                    
+                    // Step Forward
+                    Button(action: stepForward) {
+                        Image(systemName: "chevron.right")
+                            .font(.system(size: 20, weight: .medium))
+                            .foregroundColor(.primary)
+                    }
+                    .disabled(currentFrame >= totalFrames || !animationLoaded)
+                }
+                
+                // Scrubber Slider
+                VStack(spacing: 8) {
+                    Slider(
+                        value: Binding(
+                            get: { currentFrame },
+                            set: { newValue in
+                                currentFrame = newValue
+                                updateFrame()
+                            }
+                        ),
+                        in: 0...max(totalFrames, 1),
+                        step: 1,
+                        onEditingChanged: { editing in
+                            if editing && animationLoaded {
+                                isPlaying = false
+                                animationView?.pause()
+                            }
+                        }
+                    )
+                    .disabled(!animationLoaded)
+                    
+                    HStack {
+                        Text("0")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Spacer()
+                        Text("\(Int(totalFrames))")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+            .padding()
+            .background(Color(.systemBackground))
+            .cornerRadius(12)
+            .shadow(radius: 2)
+        }
+        .padding()
+        .onAppear {
+            checkAnimationAvailability()
         }
     }
+    
+    private func checkAnimationAvailability() {
+        // Try to load the animation to see if it's available
+        if LottieAnimation.named(animationName) != nil {
+            animationLoaded = true
+        } else {
+            print("⚠️ Animation '\(animationName)' not found in bundle")
+            animationLoaded = false
+        }
+    }
+    
+    private func stepBackward() {
+        guard animationLoaded else { return }
+        currentFrame = max(0, currentFrame - 1)
+        updateFrame()
+    }
+    
+    private func stepForward() {
+        guard animationLoaded else { return }
+        currentFrame = min(totalFrames, currentFrame + 1)
+        updateFrame()
+    }
+    
+    private func togglePlayback() {
+        guard animationLoaded else { return }
+        isPlaying.toggle()
+        
+        if isPlaying {
+            animationView?.play()
+        } else {
+            animationView?.pause()
+        }
+    }
+    
+    private func updateFrame() {
+        guard animationLoaded else { return }
+        animationView?.currentFrame = AnimationFrameTime(currentFrame)
+    }
+}
+
+/// UIViewRepresentable for Lottie Animation
+struct AnimationViewRepresentable: UIViewRepresentable {
+    let animationName: String
+    @Binding var currentFrame: Double
+    @Binding var isPlaying: Bool
+    @Binding var totalFrames: Double
+    @Binding var framerate: Double
+    let onAnimationViewCreated: (LottieAnimationView) -> Void
     
     func makeUIView(context: Context) -> UIView {
-        // Create a container view that will properly handle sizing
+        // Create a container view
         let containerView = UIView()
-        containerView.backgroundColor = UIColor.clear
+        containerView.backgroundColor = .clear
         
         let animationView = LottieAnimationView()
+        
+        // Load animation safely
+        guard let animation = LottieAnimation.named(animationName) else {
+            print("⚠️ Failed to load animation: \(animationName)")
+            return containerView
+        }
+        
         animationView.animation = animation
-        animationView.contentMode = .scaleAspectFill
-        animationView.loopMode = .playOnce  // Default to play once, will be overridden in updateUIView
-        animationView.animationSpeed = animationSpeed  // Set the playback speed
-        animationView.backgroundColor = UIColor.clear
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .playOnce
+        animationView.backgroundBehavior = .pauseAndRestore
+        animationView.currentFrame = AnimationFrameTime(0)
         
-        // Store completion callback for later use in updateUIView
-        // We'll set up the completion when we actually play the animation
-        
-        // Disable autoresizing masks to use Auto Layout
-        animationView.translatesAutoresizingMaskIntoConstraints = false
+        // Add animation view to container
         containerView.addSubview(animationView)
         
-        // Fill the entire container
+        // For square animations, we need to scale based on height
+        // Set the frame to match container height and maintain aspect ratio
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Center the animation view and make it square based on container height
         NSLayoutConstraint.activate([
-            animationView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            animationView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            animationView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            animationView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+            animationView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            animationView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            animationView.heightAnchor.constraint(equalTo: containerView.heightAnchor),
+            animationView.widthAnchor.constraint(equalTo: animationView.heightAnchor) // Square aspect ratio
         ])
         
-        // Store the animation view for updates
-        containerView.tag = 999 // Use tag to find it later
-        
-        // Debug: Check if animation was set
-        if animationView.animation != nil {
-            print("✅ LottieAnimationView: Animation assigned to view")
-            if let animation = animationView.animation {
-                print("📐 Animation intrinsic size: \(animation.size)")
-            }
-        } else {
-            print("❌ LottieAnimationView: No animation assigned to view")
+        // Update binding values
+        DispatchQueue.main.async {
+            self.totalFrames = Double(animation.endFrame - animation.startFrame)
+            self.framerate = Double(animation.framerate)
+            self.currentFrame = Double(animation.startFrame)
         }
+        
+        // Set up coordinator
+        context.coordinator.animationView = animationView
+        context.coordinator.setupDisplayLink()
+        
+        onAnimationViewCreated(animationView)
         
         return containerView
     }
     
     func updateUIView(_ uiView: UIView, context: Context) {
-        // Find the animation view within the container
-        guard let animationView = uiView.subviews.first(where: { $0 is LottieAnimationView }) as? LottieAnimationView else {
-            print("❌ Could not find LottieAnimationView in container")
-            return
-        }
-        
-        // Check if animation is already playing to avoid restarting
-        let isCurrentlyPlaying = animationView.isAnimationPlaying
-        
-        // If animation is nil (completed state), don't try to play anything
-        guard animation != nil else {
-            print("🚫 No animation available, skipping playback")
-            animationView.stop()
-            return
-        }
-        
-        // Update animation speed in case it changed
-        animationView.animationSpeed = animationSpeed
-        
-        // Apply playback mode
-        switch playbackMode {
-        case .playing(let mode):
-            switch mode {
-            case .fromProgress(let fromProgress, let toProgress, let loopMode):
-                animationView.loopMode = loopMode
-                
-                // Only start if not already playing the same segment
-                if !isCurrentlyPlaying {
-                    if let completion = completion {
-                        animationView.play(fromProgress: fromProgress, toProgress: toProgress) { finished in
-                            if finished {
-                                DispatchQueue.main.async {
-                                    completion()
-                                }
-                            }
-                        }
-                    } else {
-                        animationView.play(fromProgress: fromProgress, toProgress: toProgress)
-                    }
-                    print("🎮 Playing from progress \(fromProgress) to \(toProgress)")
-                } else {
-                    print("⏭️ Animation already playing, skipping restart")
-                }
-                
-            case .fromFrame(let fromFrame, let toFrame, let loopMode):
-                animationView.loopMode = loopMode
-                
-                // Only start if not already playing the same segment
-                if !isCurrentlyPlaying {
-                    if let completion = completion {
-                        animationView.play(fromFrame: AnimationFrameTime(fromFrame), toFrame: AnimationFrameTime(toFrame)) { finished in
-                            if finished {
-                                print("✅ Animation segment completed: frames \(fromFrame)-\(toFrame)")
-                                DispatchQueue.main.async {
-                                    completion()
-                                }
-                            }
-                        }
-                    } else {
-                        animationView.play(fromFrame: AnimationFrameTime(fromFrame), toFrame: AnimationFrameTime(toFrame))
-                    }
-                    print("🎮 Playing from frame \(fromFrame) to \(toFrame) with loop mode: \(loopMode)")
-                } else {
-                    print("⏭️ Animation already playing frames \(fromFrame)-\(toFrame), skipping restart")
-                }
-            }
-            
-        case .paused:
-            animationView.pause()
-            print("⏸️ Animation paused")
-        }
+        context.coordinator.parent = self
     }
     
-    func playing(_ mode: LottiePlayMode = .fromProgress(0, toProgress: 1, loopMode: .playOnce)) -> CustomLottieView {
-        var view = self
-        view.playbackMode = .playing(mode)
-        return view
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
     }
-
-    func speed(_ speed: CGFloat) -> CustomLottieView {
-        var view = self
-        view.animationSpeed = speed
-        return view
-    }
-
-    func paused() -> CustomLottieView {
-        var view = self
-        view.playbackMode = .paused
-        return view
+    
+    class Coordinator: NSObject {
+        var parent: AnimationViewRepresentable
+        var displayLink: CADisplayLink?
+        var animationView: LottieAnimationView?
+        
+        init(_ parent: AnimationViewRepresentable) {
+            self.parent = parent
+        }
+        
+        func setupDisplayLink() {
+            // Only create display link if not already created
+            guard displayLink == nil else { return }
+            
+            displayLink = CADisplayLink(target: self, selector: #selector(updateFrame))
+            displayLink?.add(to: .main, forMode: .common)
+        }
+        
+        @objc func updateFrame() {
+            guard let animationView = animationView else { return }
+            
+                                DispatchQueue.main.async {
+                let frameTime = animationView.currentFrame
+                self.parent.currentFrame = Double(frameTime)
+            }
+        }
+        
+        deinit {
+            displayLink?.invalidate()
+            displayLink = nil
+        }
     }
 }
 
-/// Convenience wrapper for common use cases
+/// Simple Lottie View wrapper for basic usage
 struct LottieView: View {
     let animationName: String
     let loopMode: LottieLoopMode
@@ -173,13 +279,15 @@ struct LottieView: View {
     let toFrame: AnimationFrameTime?
     let completion: (() -> Void)?
     let playbackSpeed: CGFloat
+    let contentMode: UIView.ContentMode
     
     init(
         animationName: String,
         loopMode: LottieLoopMode = .playOnce,
         segment: LottieSegment? = nil,
         completion: (() -> Void)? = nil,
-        playbackSpeed: CGFloat = AnimationConstants.lottiePlaybackSpeed
+        playbackSpeed: CGFloat = 1.0,
+        contentMode: UIView.ContentMode = .scaleAspectFit
     ) {
         self.animationName = animationName
         self.loopMode = loopMode
@@ -187,39 +295,147 @@ struct LottieView: View {
         self.toFrame = segment?.endFrame
         self.completion = completion
         self.playbackSpeed = playbackSpeed
+        self.contentMode = contentMode
     }
     
     var body: some View {
-        let animation = loadAnimation()
+        LottieViewRepresentable(
+            animationName: animationName,
+            loopMode: loopMode,
+            fromFrame: fromFrame,
+            toFrame: toFrame,
+            completion: completion,
+            playbackSpeed: playbackSpeed,
+            contentMode: contentMode
+        )
+    }
+}
+
+struct LottieViewRepresentable: UIViewRepresentable {
+    let animationName: String
+    let loopMode: LottieLoopMode
+    let fromFrame: AnimationFrameTime?
+    let toFrame: AnimationFrameTime?
+    let completion: (() -> Void)?
+    let playbackSpeed: CGFloat
+    let contentMode: UIView.ContentMode
+    
+    init(
+        animationName: String,
+        loopMode: LottieLoopMode,
+        fromFrame: AnimationFrameTime? = nil,
+        toFrame: AnimationFrameTime? = nil,
+        completion: (() -> Void)? = nil,
+        playbackSpeed: CGFloat = 1.0,
+        contentMode: UIView.ContentMode = .scaleAspectFill
+    ) {
+        self.animationName = animationName
+        self.loopMode = loopMode
+        self.fromFrame = fromFrame
+        self.toFrame = toFrame
+        self.completion = completion
+        self.playbackSpeed = playbackSpeed
+        self.contentMode = contentMode
+    }
+    
+    func makeUIView(context: Context) -> UIView {
+        // Create a container view
+        let containerView = UIView()
+        containerView.backgroundColor = .clear
         
+        let animationView = LottieAnimationView()
+        
+        // Load animation safely
+        guard let animation = LottieAnimation.named(animationName) else {
+            print("⚠️ Failed to load animation: \(animationName)")
+            return containerView
+        }
+        
+        animationView.animation = animation
+        animationView.contentMode = contentMode
+        animationView.loopMode = loopMode
+        animationView.animationSpeed = playbackSpeed
+        
+        // Add animation view to container
+        containerView.addSubview(animationView)
+        
+        // For square animations, we need to scale based on height
+        // Set the frame to match container height and maintain aspect ratio
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Center the animation view and make it square based on container height
+        NSLayoutConstraint.activate([
+            animationView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            animationView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            animationView.heightAnchor.constraint(equalTo: containerView.heightAnchor),
+            animationView.widthAnchor.constraint(equalTo: animationView.heightAnchor) // Square aspect ratio
+        ])
+        
+        // Set up the coordinator to track animation state
+        context.coordinator.animationView = animationView
+        
+        return containerView
+    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {
+        // Find the animation view within the container
+        guard let animationView = uiView.subviews.first(where: { $0 is LottieAnimationView }) as? LottieAnimationView else { 
+            return 
+        }
+        
+        // Only proceed if animation is loaded
+        guard animationView.animation != nil else { return }
+        
+        // Update the coordinator's parent reference
+        context.coordinator.parent = self
+        
+        // Update playback speed
+        animationView.animationSpeed = playbackSpeed
+        
+        // Handle animation playback based on segment
         if let fromFrame = fromFrame, let toFrame = toFrame {
-            print("🎯 LottieView: Creating view for frames \(fromFrame)-\(toFrame) at \(playbackSpeed)x speed")
-            return CustomLottieView(animation: animation, completion: completion)
-                .playing(.fromFrame(fromFrame, toFrame: toFrame, loopMode: loopMode))
-                .speed(playbackSpeed)
+            // We have a specific segment to play
+            let currentSegment = "\(fromFrame)-\(toFrame)"
+            
+            // Only play if we haven't already played this segment or if animation isn't running
+            if context.coordinator.lastPlayedSegment != currentSegment || !animationView.isAnimationPlaying {
+                context.coordinator.lastPlayedSegment = currentSegment
+                print("🎮 Starting animation segment: \(currentSegment)")
+                
+                if let completion = completion {
+                    animationView.play(fromFrame: fromFrame, toFrame: toFrame) { finished in
+                        if finished {
+                            print("✅ Animation segment \(currentSegment) completed")
+                            DispatchQueue.main.async {
+                                completion()
+                            }
+                        }
+                    }
+                } else {
+                    animationView.play(fromFrame: fromFrame, toFrame: toFrame)
+                }
+            }
         } else {
-            print("🎯 LottieView: Creating paused view (no segment provided) at \(playbackSpeed)x speed")
-            return CustomLottieView(animation: animation, completion: completion)
-                .paused()
-                .speed(playbackSpeed)
+            // No segment specified - this means we should pause/stop
+            if animationView.isAnimationPlaying {
+                print("⏸️ Pausing animation (no segment specified)")
+                animationView.pause()
+            }
+            context.coordinator.lastPlayedSegment = nil
         }
     }
     
-    /// Try loading animation with multiple formats
-    private func loadAnimation() -> LottieAnimation? {
-        // Try JSON first (more compatible), then .lottie format
-        if let jsonAnimation = LottieAnimation.named(animationName + ".json") {
-            print("✅ Loaded animation from JSON format: \(animationName).json")
-            return jsonAnimation
-        } else if let lottieAnimation = LottieAnimation.named(animationName + ".lottie") {
-            print("✅ Loaded animation from .lottie format: \(animationName).lottie")
-            return lottieAnimation
-        } else if let baseAnimation = LottieAnimation.named(animationName) {
-            print("✅ Loaded animation with base name: \(animationName)")
-            return baseAnimation
-        } else {
-            print("❌ Failed to load animation with any format: \(animationName)")
-            return nil
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+    
+    class Coordinator: NSObject {
+        var parent: LottieViewRepresentable
+        var animationView: LottieAnimationView?
+        var lastPlayedSegment: String? // Track the last played segment to prevent re-triggering
+        
+        init(_ parent: LottieViewRepresentable) {
+            self.parent = parent
         }
     }
 }
@@ -235,234 +451,25 @@ struct LottieSegment {
     }
 }
 
-// MARK: - Playback Configuration
-enum LottiePlaybackMode {
-    case playing(LottiePlayMode)
-    case paused
+// MARK: - Preview
+#Preview {
+    LottieAnalysisView()
 }
 
-enum LottiePlayMode {
-    case fromProgress(AnimationProgressTime, toProgress: AnimationProgressTime, loopMode: LottieLoopMode)
-    case fromFrame(AnimationFrameTime, toFrame: AnimationFrameTime, loopMode: LottieLoopMode)
-}
-
-// MARK: - Debug Utility
-struct LottieDebugView: View {
-    var body: some View {
-        VStack(spacing: 20) {
-            Text("Lottie Debug Console")
-                .font(.system(size: 24, weight: .bold))
-                .padding()
-            
-            // Test 1: Check if file exists in bundle
-            Button("Test 1: Check Bundle Resources") {
-                checkBundleResources()
-            }
-            .padding()
-            .background(Color.blue)
-            .foregroundColor(.white)
-            .cornerRadius(8)
-            
-            // Test 2: Try loading animation
-            Button("Test 2: Load Animation") {
-                testAnimationLoading()
-            }
-            .padding()
-            .background(Color.green)
-            .foregroundColor(.white)
-            .cornerRadius(8)
-            
-            // Test 3: List all bundle files
-            Button("Test 3: List All Bundle Files") {
-                listAllBundleFiles()
-            }
-            .padding()
-            .background(Color.orange)
-            .foregroundColor(.white)
-            .cornerRadius(8)
-            
-            Spacer()
-        }
-        .padding()
-    }
-    
-    private func checkBundleResources() {
-        print("\n🔍 === BUNDLE RESOURCE CHECK ===")
-        
-        // Check for .lottie file
-        if let lottieUrl = Bundle.main.url(forResource: "olivia-splash-login-lottie_1.1", withExtension: "lottie") {
-            print("✅ Found .lottie file at: \(lottieUrl.path)")
-            
-            // Check file size
-            do {
-                let attributes = try FileManager.default.attributesOfItem(atPath: lottieUrl.path)
-                if let fileSize = attributes[.size] as? Int64 {
-                    print("📏 File size: \(fileSize) bytes")
-                }
-            } catch {
-                print("⚠️ Could not get file attributes: \(error)")
-            }
-        } else {
-            print("❌ .lottie file not found in bundle")
-        }
-        
-        // Check for .json file (alternative format)
-        if let jsonUrl = Bundle.main.url(forResource: "olivia-splash-login-lottie_1.1", withExtension: "json") {
-            print("✅ Found .json file at: \(jsonUrl.path)")
-        } else {
-            print("❌ .json file not found in bundle")
-        }
-        
-        print("=== END BUNDLE CHECK ===\n")
-    }
-    
-    private func testAnimationLoading() {
-        print("\n🎬 === ANIMATION LOADING TEST ===")
-        
-        // Test JSON format first
-        if let jsonAnimation = LottieAnimation.named("olivia-splash-login-lottie_1.1.json") {
-            print("✅ LottieAnimation.named() with .json succeeded")
-            print("📊 Duration: \(jsonAnimation.duration) seconds")
-            print("🎬 Frame rate: \(jsonAnimation.framerate) fps")
-            print("🎯 Frames: \(jsonAnimation.startFrame) to \(jsonAnimation.endFrame)")
-        } else {
-            print("❌ LottieAnimation.named() with .json failed")
-        }
-        
-        // Test .lottie format
-        if let lottieAnimation = LottieAnimation.named("olivia-splash-login-lottie_1.1.lottie") {
-            print("✅ LottieAnimation.named() with .lottie succeeded")
-            print("📊 Duration: \(lottieAnimation.duration) seconds")
-            print("🎬 Frame rate: \(lottieAnimation.framerate) fps")
-            print("🎯 Frames: \(lottieAnimation.startFrame) to \(lottieAnimation.endFrame)")
-        } else {
-            print("❌ LottieAnimation.named() with .lottie failed")
-        }
-        
-        // Test base name (no extension)
-        if let animation = LottieAnimation.named("olivia-splash-login-lottie_1.1") {
-            print("✅ LottieAnimation.named() base name succeeded")
-            print("📊 Duration: \(animation.duration) seconds")
-            print("🎬 Frame rate: \(animation.framerate) fps")
-            print("🎯 Frames: \(animation.startFrame) to \(animation.endFrame)")
-        } else {
-            print("❌ LottieAnimation.named() base name failed")
-        }
-        
-        // Test with filepath for JSON
-        if let bundlePath = Bundle.main.path(forResource: "olivia-splash-login-lottie_1.1", ofType: "json"),
-           let animation = LottieAnimation.filepath(bundlePath) {
-            print("✅ LottieAnimation.filepath() with JSON succeeded")
-            print("📊 Duration: \(animation.duration) seconds")
-        } else {
-            print("❌ LottieAnimation.filepath() with JSON failed")
-        }
-        
-        // Test with filepath for .lottie
-        if let bundlePath = Bundle.main.path(forResource: "olivia-splash-login-lottie_1.1", ofType: "lottie"),
-           let animation = LottieAnimation.filepath(bundlePath) {
-            print("✅ LottieAnimation.filepath() with .lottie succeeded")
-            print("📊 Duration: \(animation.duration) seconds")
-        } else {
-            print("❌ LottieAnimation.filepath() with .lottie failed")
-        }
-        
-        print("=== END LOADING TEST ===\n")
-    }
-    
-    private func listAllBundleFiles() {
-        print("\n📁 === ALL BUNDLE FILES ===")
-        
-        if let bundlePath = Bundle.main.resourcePath {
-            let fileManager = FileManager.default
-            
-            func listFiles(in directory: String, prefix: String = "") {
-                do {
-                    let items = try fileManager.contentsOfDirectory(atPath: directory)
-                    for item in items.sorted() {
-                        let itemPath = "\(directory)/\(item)"
-                        var isDirectory: ObjCBool = false
-                        
-                        if fileManager.fileExists(atPath: itemPath, isDirectory: &isDirectory) {
-                            if isDirectory.boolValue {
-                                print("\(prefix)📁 \(item)/")
-                                if item.lowercased().contains("lottie") || item.lowercased().contains("resources") {
-                                    listFiles(in: itemPath, prefix: prefix + "  ")
-                                }
-                            } else {
-                                if item.lowercased().contains("lottie") || item.hasSuffix(".json") {
-                                    print("\(prefix)📄 \(item) ⭐")
-                                } else {
-                                    print("\(prefix)📄 \(item)")
-                                }
-                            }
-                        }
-                    }
-                } catch {
-                    print("\(prefix)❌ Error reading directory: \(error)")
-                }
-            }
-            
-            listFiles(in: bundlePath)
-        }
-        
-        print("=== END FILE LIST ===\n")
-    }
-}
-
-// MARK: - Debug Previews (iOS 13 Compatible)
-#Preview("Lottie Debug Console") {
-    LottieDebugView()
-}
-
-#Preview("Basic Lottie Test") {
+// MARK: - Simple Test Preview
+#Preview("Simple Lottie Test") {
     VStack {
-        Text("Testing Basic Lottie Animation")
-            .font(.system(size: 20, weight: .semibold))
+        Text("Basic Lottie View Test")
+            .font(.headline)
             .padding()
         
-        // Test basic animation loading
-        CustomLottieView(animation: .named("olivia-splash-login-lottie_1.1"))
-            .playing()
-            .frame(width: 300, height: 300)
-            .border(Color.red, width: 2) // Visual border to see the frame
-        
-        Text("If you see a red border but no animation,\nthe Lottie file might not be loading.")
-            .multilineTextAlignment(.center)
-            .padding()
+        LottieView(
+            animationName: "olivia-splash-login-lottie_1.6",
+            loopMode: .loop,
+            contentMode: .scaleAspectFit
+        )
+        .background(Color.red.opacity(0.2))
+        .border(Color.blue, width: 2)
     }
+    .background(Color.gray.opacity(0.1))
 }
-
-#Preview("Splash Segment Test") {
-    VStack {
-        Text("Testing Splash Segment (0-207)")
-            .font(.system(size: 20, weight: .semibold))
-            .padding()
-        
-        // Test splash segment specifically
-        CustomLottieView(animation: .named("olivia-splash-login-lottie_1.1"))
-            .playing(.fromFrame(0, toFrame: 207, loopMode: .playOnce))
-            .frame(width: 300, height: 300)
-            .border(Color.blue, width: 2)
-        
-        Text("Splash Segment: Frames 0-207")
-            .padding()
-    }
-}
-
-#Preview("Login Segment Test") {
-    VStack {
-        Text("Testing Login Segment (208-285)")
-            .font(.system(size: 20, weight: .semibold))
-            .padding()
-        
-        // Test login segment specifically
-        CustomLottieView(animation: .named("olivia-splash-login-lottie_1.1"))
-            .playing(.fromFrame(208, toFrame: 285, loopMode: .playOnce))
-            .frame(width: 300, height: 300)
-            .border(Color.green, width: 2)
-        
-        Text("Login Segment: Frames 208-285")
-            .padding()
-    }
-} 

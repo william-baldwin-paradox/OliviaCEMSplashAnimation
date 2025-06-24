@@ -45,7 +45,8 @@ final class SplashViewModel: ObservableObject {
                     self?.handleAnimationCompletion()
                 }
             },
-            playbackSpeed: currentPlaybackSpeed()
+            playbackSpeed: currentPlaybackSpeed(),
+            contentMode: .scaleAspectFit  // Use aspect fit for square animation on portrait screen
         )
         .id("continuous-lottie-animation") // Single stable ID
         .onAppear {
@@ -57,19 +58,19 @@ final class SplashViewModel: ObservableObject {
     private func currentSegment() -> LottieSegment? {
         switch currentAnimationState {
         case .splash:
-            print("🎯 Playing splash segment (0-207)")
+            print("🎯 Playing splash segment (0-108)")
             return LottieConfig.splashSegment
             
         case .pausedAtLogin:
-            print("🎯 Paused at login transition (frame 207)")
+            print("🎯 Paused at login transition (frame 108)")
             return nil // Will pause the animation
             
         case .login:
-            print("🎯 Playing login segment (208-285)")
+            print("🎯 Playing login segment (109-137)")
             return LottieConfig.loginSegment
             
         case .completed:
-            print("🎯 Animation completed, paused at final frame (285)")
+            print("🎯 Animation completed, paused at final frame (137)")
             return nil // Will stay paused at final frame
         }
     }
@@ -109,19 +110,18 @@ final class SplashViewModel: ObservableObject {
         // Pause at frame 207
         currentAnimationState = .pausedAtLogin
         
-        // Start login UI first, then follow with Lottie login segment after a longer delay
+        // Start login Lottie segment first (after shorter delay)
+        DispatchQueue.main.asyncAfter(deadline: .now() + AnimationConstants.loginLottieDelay) {
+            print("🎬 Starting login Lottie segment")
+            self.currentAnimationState = .login
+        }
+        
+        // Start login UI after a longer delay (so it starts after Lottie)
         DispatchQueue.main.asyncAfter(deadline: .now() + AnimationConstants.loginUIDelay) {
             print("🎭 Starting login UI animation")
             
-            // Start login UI animation first
             withAnimation(.spring(response: AnimationConstants.progressSpringResponse, dampingFraction: AnimationConstants.springDamping)) {
                 self.showLoginUI = true
-            }
-            
-            // Start login segment with additional delay to let the UI settle
-            DispatchQueue.main.asyncAfter(deadline: .now() + AnimationConstants.loginLottieDelay) {
-                print("🎬 Starting login Lottie segment (delayed by \(AnimationConstants.loginLottieDelay)s)")
-                self.currentAnimationState = .login
             }
         }
     }

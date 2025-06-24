@@ -1,0 +1,31 @@
+# Xcode
+*.xcuserstate
+project.xcworkspace/xcuserdata/
+*.xcuserdatad/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# SwiftLint
+.swiftlint.yml.tmp
+
+# Build products
+DerivedData/
+build/
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# Swift Package Manager
+.build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output 
