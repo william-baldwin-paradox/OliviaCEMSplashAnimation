@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B0A02722E09FA930098BFFA /* olivia-splash-login-lottie_1.6.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A02712E09FA930098BFFA /* olivia-splash-login-lottie_1.6.json */; };
 		5B354ED32DA8EABC00E2B775 /* OliviaCEMSplashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B354ED22DA8EABC00E2B775 /* OliviaCEMSplashApp.swift */; };
 		5B605A6C2DE7E47700BF6131 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B605A682DE7E47700BF6131 /* SplashView.swift */; };
 		5B605A6D2DE7E47700BF6131 /* CustomToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B605A642DE7E47700BF6131 /* CustomToggle.swift */; };
@@ -22,11 +23,10 @@
 		5BA0B2D22E01ECAE00E21A91 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0B2D02E01ECAE00E21A91 /* LottieView.swift */; };
 		5BA0B2D92E01EDFB00E21A91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0B2D72E01EDFB00E21A91 /* AppDelegate.swift */; };
 		5BA0B2DA2E01EDFB00E21A91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0B2D82E01EDFB00E21A91 /* SceneDelegate.swift */; };
-		5BA0B2E02E0207B000E21A91 /* olivia-splash-login-lottie_1.1.lottie in Resources */ = {isa = PBXBuildFile; fileRef = 5BA0B2DF2E0207B000E21A91 /* olivia-splash-login-lottie_1.1.lottie */; };
-		5BA0B2E22E0207F900E21A91 /* olivia-splash-login-lottie_1.1.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BA0B2E12E0207F900E21A91 /* olivia-splash-login-lottie_1.1.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B0A02712E09FA930098BFFA /* olivia-splash-login-lottie_1.6.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "olivia-splash-login-lottie_1.6.json"; sourceTree = "<group>"; };
 		5B354ED22DA8EABC00E2B775 /* OliviaCEMSplashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OliviaCEMSplashApp.swift; sourceTree = "<group>"; };
 		5B605A5F2DE7E47700BF6131 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5B605A622DE7E47700BF6131 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
@@ -42,8 +42,6 @@
 		5BA0B2D02E01ECAE00E21A91 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		5BA0B2D72E01EDFB00E21A91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA0B2D82E01EDFB00E21A91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5BA0B2DF2E0207B000E21A91 /* olivia-splash-login-lottie_1.1.lottie */ = {isa = PBXFileReference; lastKnownFileType = file; path = "olivia-splash-login-lottie_1.1.lottie"; sourceTree = "<group>"; };
-		5BA0B2E12E0207F900E21A91 /* olivia-splash-login-lottie_1.1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "olivia-splash-login-lottie_1.1.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +145,7 @@
 		5BA0B2CD2DFCBE9B00E21A91 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				5BA0B2E12E0207F900E21A91 /* olivia-splash-login-lottie_1.1.json */,
-				5BA0B2DF2E0207B000E21A91 /* olivia-splash-login-lottie_1.1.lottie */,
+				5B0A02712E09FA930098BFFA /* olivia-splash-login-lottie_1.6.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -214,8 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BA0B2E22E0207F900E21A91 /* olivia-splash-login-lottie_1.1.json in Resources */,
-				5BA0B2E02E0207B000E21A91 /* olivia-splash-login-lottie_1.1.lottie in Resources */,
+				5B0A02722E09FA930098BFFA /* olivia-splash-login-lottie_1.6.json in Resources */,
 				5B9B3B0C2DA5891B00FF1808 /* Preview Assets.xcassets in Resources */,
 				5B9B3B092DA5891B00FF1808 /* Assets.xcassets in Resources */,
 			);
